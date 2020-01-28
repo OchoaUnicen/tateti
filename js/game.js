@@ -31,18 +31,29 @@ document.addEventListener('DOMContentLoaded', function () {
     imagen_x.src = "./img/x.png";
 
 
+    let imagen_o = new Image();
+    imagen_o.src = "./img/o.png";
+
+
     function dibujarX () {    
   
       context.drawImage(imagen_x, 50 , 50, imagen_x.naturalWidth, imagen_x.naturalHeight);
     }
 
 
-    dibujarX();
+    function dibujarO () {
+
+      context.drawImage(imagen_o, 250, 50, imagen_o.naturalWidth, imagen_o.naturalHeight);
+
+    }
+
+
+    
 
    
    
     
-    console.log(imagen_x);
+   
 
 
     
@@ -67,18 +78,119 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+    let Tablero = {
+
+      "cuadro_1" : {
+
+          "x1": 123,
+          "x2": 123,
+          "y1": 123,
+          "y2": 123,
+          
+          //estado me parece que va en el AJAX
+          "estado":"vacio"
+
+      }
+
+
+
+    }
+
+
+
+
+
+    
+
+
+
     //--------------------------------------------------------------------
     canvas.addEventListener("click", function (evt) {
       var mousePos = getMousePos(canvas, evt);
 
-      console.log("clicked");
-      console.log(mousePos.x + ',' + mousePos.y);   
+      // console.log("clicked");
+      // console.log(mousePos.x + ',' + mousePos.y);   
       
       
 
       //aca va logica de clickear para colocar x/o en cuadro
 
 
+      
+
+      //cuadro 1 
+      if ((mousePos.x > 0 && mousePos.x < 200) && (mousePos.y > 0 && mousePos.y < 200)) {
+
+        console.log("cuadro 1");
+
+        dibujarX();
+
+      }
+
+      //cuadro 2
+      if ((mousePos.x > 200 && mousePos.x < 400) && (mousePos.y > 0 && mousePos.y < 200)) {
+
+        console.log("cuadro 2");
+
+
+        dibujarO();
+      }
+
+       //cuadro 3
+       if ((mousePos.x > 400 && mousePos.x < 600) && (mousePos.y > 0 && mousePos.y < 200)) {
+
+        console.log("cuadro 3");
+
+      }
+
+
+      //cuadro 4
+      if ((mousePos.x > 0 && mousePos.x < 200) && (mousePos.y > 200 && mousePos.y < 400)) {
+
+        console.log("cuadro 4");
+
+      }
+
+      //cuadro 5
+      if ((mousePos.x > 200 && mousePos.x < 400) && (mousePos.y > 200 && mousePos.y < 400)) {
+
+        console.log("cuadro 5");
+
+      }
+
+       //cuadro 6
+       if ((mousePos.x > 400 && mousePos.x < 600) && (mousePos.y > 200 && mousePos.y < 400)) {
+
+        console.log("cuadro 6");
+
+      }
+
+
+       //cuadro 7
+       if ((mousePos.x > 0 && mousePos.x < 200) && (mousePos.y > 400 && mousePos.y < 600)) {
+
+        console.log("cuadro 7");
+
+      }
+
+      //cuadro 
+      if ((mousePos.x > 200 && mousePos.x < 400) && (mousePos.y > 400 && mousePos.y < 600)) {
+
+        console.log("cuadro 8");
+
+      }
+
+       //cuadro 
+       if ((mousePos.x > 400 && mousePos.x < 600) && (mousePos.y > 400 && mousePos.y < 600)) {
+
+        console.log("cuadro 9");
+
+      }
+
+
+
+    
 
 
 
@@ -146,9 +258,9 @@ document.addEventListener('DOMContentLoaded', function () {
     dibujarLinea(0, 400 , 600 , 400);
 
 
-
+    
     //
-    dibujarX();
+    //dibujarX();
     //
 
 
