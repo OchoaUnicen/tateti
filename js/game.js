@@ -12,6 +12,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    //----------------LOGIN--------------------------------------------------------------------
+    let user_activo = "desconocido";
+    let Usuarios = {
+
+        "usuario_1": {
+          "username": "Guido",
+          "password": "Pola"
+        },
+        "usuario_2": {
+          "username": "Nacho",
+          "password": "Master"
+        },
+  
+        "usuario_3": {
+          "username": "Sebinsky",
+          "password": "hackerpro911"
+        }
+  
+      }
+
+let boton_login = document.getElementById('boton_loggear');
+let input_usuario = document.getElementById('input_usuario');
+let input_pass = document.getElementById('input_pass');
+boton_login.addEventListener('click', function() {
+
+    if (input_usuario.value == Usuarios.usuario_1.username && input_pass.value == Usuarios.usuario_1.password ) {
+        alert("se loggeo guido");
+
+        user_activo = "Guido";
+
+    }
+    else if (input_usuario.value == Usuarios.usuario_2.username && input_pass.value == Usuarios.usuario_2.password ) {
+        alert("se loggeo nacho");
+
+        user_activo = "Nacho";
+    }
+
+    else if (input_usuario.value == Usuarios.usuario_3.username && input_pass.value == Usuarios.usuario_3.password ) {
+        alert("se loggeo seba");
+        user_activo = "Seba";
+
+    }
+
+  });
+
+//---------------FIN--------LOGIN---------------------------------------------------------
+
 
 
    
@@ -34,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let imagen_o = new Image();
     imagen_o.src = "./img/o.png";
 
-
+    // tiene que pedir por parametros usuario y cuadro
     function dibujarX () {    
   
       context.drawImage(imagen_x, 50 , 50, imagen_x.naturalWidth, imagen_x.naturalHeight);
@@ -45,57 +92,96 @@ document.addEventListener('DOMContentLoaded', function () {
 
       context.drawImage(imagen_o, 250, 50, imagen_o.naturalWidth, imagen_o.naturalHeight);
 
-    }
-
-
-    
+    }   
 
    
-   
-    
-   
-
-
-    
-
-    let Usuarios = {
-
-      "usuario_1": {
-        "username": "Guido",
-        "password": "Pola"
-      },
-      "usuario_2": {
-        "username": "Nacho",
-        "password": "Master"
-      },
-
-      "usuario_3": {
-        "username": "Sebinsky",
-        "password": "hackerpro911"
-      }
-
-    }
 
 
 
 
-    let Tablero = {
+  let Tablero = {
+    "cuadro_1": {
+      "x1": 0,
+      "x2": 200,
+      "y1": 0,
+      "y2": 200,
+      //estado me parece que va en el AJAX
+      "estado": "vacio"
+    },
 
-      "cuadro_1" : {
+    "cuadro_2": {
+      "x1": 200,
+      "x2": 400,
+      "y1": 0,
+      "y2": 200,
+      //estado me parece que va en el AJAX
+      "estado": "vacio"
+    },
+    "cuadro_3": {
+      "x1": 400,
+      "x2": 600,
+      "y1": 0,
+      "y2": 200,
+      //estado me parece que va en el AJAX
+      "estado": "vacio"
+    },
+    "cuadro_4": {
+      "x1": 0,
+      "x2": 200,
+      "y1": 200,
+      "y2": 400,
+      //estado me parece que va en el AJAX
+      "estado": "vacio"
+    },
+    "cuadro_5": {
 
-          "x1": 123,
-          "x2": 123,
-          "y1": 123,
-          "y2": 123,
-          
-          //estado me parece que va en el AJAX
-          "estado":"vacio"
+      "x1": 200,
+      "x2": 400,
+      "y1": 200,
+      "y2": 400,
 
-      }
+      //estado me parece que va en el AJAX
+      "estado": "vacio"
+    },
+    "cuadro_6": {
+      "x1": 400,
+      "x2": 600,
+      "y1": 200,
+      "y2": 400,
 
+      //estado me parece que va en el AJAX
+      "estado": "vacio"
+    },
+    "cuadro_7": {
+      "x1": 0,
+      "x2": 200,
+      "y1": 400,
+      "y2": 600,
 
+      //estado me parece que va en el AJAX
+      "estado": "vacio"
+    },
 
-    }
+    "cuadro_8": {
+
+      "x1": 200,
+      "x2": 400,
+      "y1": 400,
+      "y2": 600,
+
+      //estado me parece que va en el AJAX
+      "estado": "vacio"
+    },
+    "cuadro_9": {
+      "x1": 400,
+      "x2": 600,
+      "y1": 400,
+      "y2": 600,
+      //estado me parece que va en el AJAX
+      "estado": "vacio"
+
+    },
+  }
 
 
 
@@ -174,14 +260,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
       }
 
-      //cuadro 
+      //cuadro 8
       if ((mousePos.x > 200 && mousePos.x < 400) && (mousePos.y > 400 && mousePos.y < 600)) {
 
         console.log("cuadro 8");
 
       }
 
-       //cuadro 
+       //cuadro 9
        if ((mousePos.x > 400 && mousePos.x < 600) && (mousePos.y > 400 && mousePos.y < 600)) {
 
         console.log("cuadro 9");
